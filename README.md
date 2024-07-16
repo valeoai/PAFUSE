@@ -1,6 +1,6 @@
 # PAFUSE: Part-based Diffusion for 3D Whole-Body Pose Estimation
 
-The PyTorch implementation for [**PAFUSE**](https://arxiv.org/abs/2407.10220) .
+Official PyTorch implementation of [**PAFUSE**](https://arxiv.org/abs/2407.10220).
 
 [//]: # (<p align="center"><img src="fig/model_pafuse.png", width="600" alt="" /></p>)
 <p align="center"><img src="fig/ballet_001.gif", width="600"  alt="" /></p>
@@ -98,7 +98,7 @@ If you find <tt>PAFUSE</tt> useful for your research, please cite our paper as f
 
 BibTeX entry:
 ```
-@misc{HoughNet,
+@misc{pafuse,
   author = {Nermin Samet and Cédric Rommel and David Picard and Eduardo Valle},
   title = {PAFUSE: Part-based Diffusion for 3D Whole-Body Pose Estimation},
   year = {2024},
