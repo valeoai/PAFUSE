@@ -1,0 +1,18 @@
+diff_model: MixSTE2  # which diffusion backbone: MlpJCMixer or Mlp or MlpMixer or MixSTE2
+batch_size: 1024  # batch size in terms of predicted frames
+data_augmentation: True  # enable train-time flipping (replaces no-data-augmentation from arguments.py)
+test_time_augmentation: True
+dropout: 0.  # dropout probability
+learning_rate: 0.00006  # initial learning rate
+lr_decay: 0.993  # learning rate decay per epoch
+coverlr: False  # cover learning rate with assigned during resuming previous model
+min_loss: 100000  # assign min loss(best loss) during resuming previous model
+cs: 512  # channel size of model, only for trasformer
+dep: 8  # depth of model
+alpha: 0.01  # used for wf_mpjpe
+beta: 2  # used for wf_mpjpe
+postrf: False  # use the post refine module
+ftpostrf: False  # For fintune to post refine module
+wb_loss: False
+mse_loss: False
+weighted_loss: False  # weighting of

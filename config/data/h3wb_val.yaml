@@ -1,0 +1,4 @@
+dataset: h3wb
+num_kps: 134  # if root added 134, else 133
+subjects_train: 'S1,S5,S6'  # training subjects separated by comma
+subjects_test: 'S7'  # or S7 if you dont have the test set! test subjects separated by comma

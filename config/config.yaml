@@ -1,0 +1,91 @@
+# General arguments
+general:
+  checkpoint: ''  # checkpoint directory
+  log: 'log/default'  # log file directory
+  checkpoint_frequency: 20  # create a checkpoint every N epochs
+  resume: ''  # checkpoint to resume (file name)
+  nolog: False  # disable log function
+  evaluate: 'best_epoch.bin'  # checkpoint to evaluate (file name) [default '' for training]
+  render: True  # visualize a particular video
+  by_subject: False  # break down error by subject (on evaluation)
+  export_training_curves: False  # save training curves as .png images
+  part_based_model: True  # train the part based model for body, hands and face [default True for PAFUSE]
+mlflow:
+  mlflow_on: False
+  mlflow_uri: file:///home/nsamet/mlflow_files_d3dpwb/mlruns/
+  experiment: default  # experiment name
+# Data arguments
+data:
+  dataset: h3wb
+  num_kps: 134  # if root added 134, else 133 [default 134]
+  subjects_train: 'S1,S5,S6,S7'  # training subjects separated by comma
+  subjects_test: 'S8'
+  subjects_unlabeled: ''  # unlabeled subjects separated by comma for self-supervision
+  actions: '*'  # actions to train/test on, separated by comma, or * for all
+  merge_hands: True  # merge both hands into single model or use separate models [default True for PAFUSE]
+# Model arguments
+model:
+  diff_model: MixSTE2
+  stride: 27  # chunk size to use during training
+  number_of_frames: 27  # how many frames used as input
+  epochs: 400  # number of training epochs
+  batch_size: 1024  # batch size in terms of predicted frames
+  data_augmentation: True  # enable train-time flipping (replaces no-data-augmentation from arguments.py)
+  test_time_augmentation: True
+  dropout: 0.  # dropout probability
+  learning_rate: 0.00006  # initial learning rate
+  lr_decay: 0.993  # learning rate decay per epoch
+  coverlr: False  # cover learning rate with assigned during resuming previous model
+  min_loss: 100000  # assign min loss(best loss) during resuming previous model
+  cs: 288  # channel size of model, only for transformer
+  dep: 8  # depth of model
+  alpha: 0.01  # used for wf_mpjpe
+  beta: 2  # used for wf_mpjpe
+  input_size: 5  # total number of 3d and 2d keypoint locations  'input_size * num_kps'
+  wb_loss: False
+  mse_loss: False
+  weighted_loss: False  # weighting of KPs
+# Experimental
+experiment:
+  gpu: '0'  # assign the gpu(s) to use
+  subset: 1  # reduce dataset size by fraction
+  downsample: 1  # downsample frame rate by factor (semi-supervised)
+  warmup: 1  # warm-up epochs for semi-supervision
+  no_eval: False  # disable epoch evaluation while training (small speed-up)
+  dense: False  # use dense convolutions instead of dilated convolutions
+  disable_optimizations: False  # disable optimized model for single-frame predictions
+  linear_projection: False  # use only linear coefficients for semi-supervised projection
+  bone_length_term: True  # disable bone length term in semi-supervised settings
+  no_proj: False  # disable projection for semi-supervised setting
+  ft: False  # use ft 2d(only for detection keypoints!)
+  ftpath: checkpoint/exp13_ft2d  # assign path of ft2d model chk path
+  ftchk: epoch_330.pth  # assign ft2d model checkpoint file name
+# Visualization
+viz:
+  viz_subject: 'S8'  # subject to render
+  viz_action: 'Sitting'  # action to render
+  viz_camera: 0  # camera to render
+  viz_video: ''  # path to input video
+  viz_skip: 0  # skip first N frames of input video
+  viz_output: 'test.gif'  # output file name (.gif or .mp4)
+  viz_export: ''  # output file name for coordinates
+  viz_bitrate: 3000  # bitrate for mp4 videos
+  viz_no_ground_truth: False  # do not show ground-truth poses
+  viz_limit: -1  # only render first N frames
+  viz_downsample: 1  # downsample FPS by a factor N
+  viz_size: 5  # image size
+  compare: False  # Whether to compare with other methods e.g. Poseformer
+# ft2d.py
+ft2d:
+  linear_channel_size: 1024  # channel size of the LinearModel
+  depth: 4  # nums of blocks of the LinearModel
+  lr_decay_gap: 10000  # channel size of the LinearModel
+  scale: 1.0  # the scale of SNR
+  timestep: 1000
+  sampling_timesteps: 5  # sampling_timesteps
+  num_proposals: 10
+  debug: False  # debugging mode
+  p2: False  # using protocol #2, i.e., P-MPJPE
+
+in_the_wild:
+  video_path: 'yoga_2/004.mp4'  # path to in the wild video

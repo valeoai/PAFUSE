@@ -1,0 +1,3 @@
+stride: 27
+number_of_frames: 27
+batch_size: 128
