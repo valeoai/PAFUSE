@@ -36,7 +36,7 @@ Please donwload and put them under the `data` folder.
 
 ## Evaluation
 
-You can download our [pre-trained](TODO!) model and put it under `checkpoint` directory. To evaluate our <tt>PAFUSE</tt> using GT 2D keypoints available in the H3WB test file, please run:
+You can download our [pre-trained](https://github.com/valeoai/PAFUSE/releases/tag/v0.1.0) model, unzip and put it under `checkpoint` directory. To evaluate our <tt>PAFUSE</tt> using GT 2D keypoints available in the H3WB test file, please run:
 
 ```bash
 python main_h3wb.py  general.checkpoint=checkpoint general.evaluate='pafuse_model.bin' ft2d.num_proposals=$PROPOSAL_NUM ft2d.sampling_timesteps=$TIMESTEP
