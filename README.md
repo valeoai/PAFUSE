@@ -2,6 +2,10 @@
 
 Official PyTorch implementation of [**PAFUSE**](https://arxiv.org/abs/2407.10220).
 
+> [**PAFUSE: Part-based Diffusion for 3D Whole-Body Pose Estimation**](https://arxiv.org/abs/2407.10220),            
+> [Nermin Samet]([http://user.ceng.metu.edu.tr/~emre/](https://nerminsamet.github.io/)), Cédric Rommel, David Picard, Eduardo Valle,        
+> *European Conference on Computer Vision (ECCV) Workshops, T-CAP, 2024.*    
+
 [//]: # (<p align="center"><img src="fig/model_pafuse.png", width="600" alt="" /></p>)
 <p align="center"><img src="fig/ballet_001.gif", width="600"  alt="" /></p>
 
@@ -94,13 +98,15 @@ Here you can adjust framerate to have faster running videos.
 If you find <tt>PAFUSE</tt> useful for your research, please cite our paper as follows.
 
 > N. Samet, C. Rommel, D. Picard, E. Valle, "PAFUSE: Part-based Diffusion for 3D Whole-Body Pose Estimation",
-> arXiv, 2024.
+> European Conference on Computer Vision (ECCV) Workshops, Towards a Complete Analysis of People: Fine-grained Understanding for Real-World Applications, 2024.
 
 BibTeX entry:
 ```
-@misc{pafuse,
+@inproceedings{pafuse,
   author = {Nermin Samet and Cédric Rommel and David Picard and Eduardo Valle},
   title = {PAFUSE: Part-based Diffusion for 3D Whole-Body Pose Estimation},
+  booktitle = {European Conference on Computer Vision (ECCV)}
+  booksubtitle = {Towards a Complete Analysis of People: Fine-grained Understanding for Real-World Applications},
   year = {2024},
 }
 ```
